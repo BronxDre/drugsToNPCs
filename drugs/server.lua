@@ -222,19 +222,3 @@ AddEventHandler('sell:check', function()
 	end)
 end)
 
-
-TriggerEvent('serenity-core:addCommand', 'dm', function(source, args, user)
-	local _source = source
-	TriggerEvent('serenity-core:getCharacterFromId', _source, function(user)
-		local dirty = user.dirty		
-			TriggerClientEvent("pNotify:SetQueueMax", _source, "lmao", 5)
-			TriggerClientEvent("pNotify:SendNotification", _source, {
-				text = "You have $" .. dirty .. " in dirty money",
-				type = "error",
-				progressBar = false,
-				queue = "lmao",
-				timeout = 3000,
-				layout = "CenterLeft"
-			})
-	end)
-end)
